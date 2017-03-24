@@ -159,7 +159,6 @@ img.pawLogo{
 .heartContainer:hover {
     background-color: #e91e63;
 }
-
 .heartContainer > img {
     width: 3.5vw;
     position: absolute;
@@ -170,7 +169,6 @@ img.pawLogo{
 .carousel-inner{
     font-size: 1.5em;
 }
-
 /* Animal picture class */
 .animalPicture {
     display: inline;
@@ -188,7 +186,6 @@ img.pawLogo{
     -moz-box-shadow: 0 2px 5px 1px rgba(0,0,0,0.75);
     box-shadow: 0 2px 5px 1px rgba(0,0,0,0.75);
 }
-
 /* Styling for search bar input */
 .form-control.userLocation {
     margin: 2% 0;
@@ -213,7 +210,6 @@ img.pawLogo{
 a.right.carousel-control, a.left.carousel-control {
     background-image: none;
 }
-
 .glyphicon-chevron-left, .glyphicon-chevron-right {
     color: #02a8f3;
 }
@@ -224,23 +220,20 @@ a.right.carousel-control, a.left.carousel-control {
     height: 50%;
     width: 90vw;
     padding: 12px;
-    margin-top: 12px;
     border-radius: 4px;
     box-shadow: 0px 5px 2px 0px rgba(0,0,0,0.75);
+    margin: 0 auto;
 }
-
 .walmart div{
     width: 20%;
     display: inline-block;
     background-color: #ffffff;
-    margin-top: 12px;
+    margin: 2% 2%;
 }
-
 .walmart.img{
     width: 50%;
     height: 50%;
 }
-
 @media (max-width: 600px) {
     .mainContent {
         width: 100vw;
@@ -258,4 +251,3 @@ a.right.carousel-control, a.left.carousel-control {
         margin: 0;
     }
 }
-
