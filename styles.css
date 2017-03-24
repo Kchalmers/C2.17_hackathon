@@ -119,7 +119,6 @@ img.pawLogo{
     -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
     box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
     padding: 5% 7%;
-    width: 15vw;
     text-transform: uppercase;
 }
 .btn.btn-danger {
@@ -204,13 +203,9 @@ img.pawLogo{
 }
 a.right.carousel-control, a.left.carousel-control {
     background-image: none;
-    height: 80vh;
 }
 .glyphicon-chevron-left, .glyphicon-chevron-right {
     color: #02a8f3;
-}
-.noInfo {
-    margin: 5% 0;
 }
 /* Walmart styles */
 .walmart{

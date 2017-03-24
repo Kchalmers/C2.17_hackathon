@@ -27,8 +27,6 @@ function assignAnimalType() {
  * @params
  */
 function getPets(){
-    console.log($(this).text());
-    //var userSelectedAnimal = $(this).text();
     shelterFinder();
 }
 /*
