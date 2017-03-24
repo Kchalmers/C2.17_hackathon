@@ -91,17 +91,13 @@ img.pawLogo{
 }
 /* Main */
 #map {
-    width: 20vw;
-    height: 20vw;
+    width: 25vw;
+    height: 25vw;
     border-radius: 50%;
     margin: 5%;
     -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.75);
     -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.75);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.75);
-}
-/* Style of tooltip on map */
-#map .h1 h1 {
-    font-size: 1.5em;
 }
 .petProfile {
     margin: 5%;
@@ -214,9 +210,7 @@ img.pawLogo{
 .carousel{
     padding-top: 20px;
     width: 500px;
-    /*overflow: hidden;*/
     height: 100%;
-    /* position: relative; */
 }
 a.right.carousel-control, a.left.carousel-control {
     background-image: none;
@@ -245,15 +239,7 @@ a.right.carousel-control, a.left.carousel-control {
     width: 50%;
     height: 50%;
 }
-/*@media (min-width: 768px){*/
-/*#map {*/
-/*width: 35vw;*/
-/*height: 35vw;*/
-/*}*/
 
-@media (min-width: 700px){
-
-}
 @media (min-width: 400px) {
     .buttonContainer, .form-control.userLocation {
         width: 100%;
