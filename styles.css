@@ -209,6 +209,8 @@ img.pawLogo{
 }
 a.right.carousel-control, a.left.carousel-control {
     background-image: none;
+    height: inherit;
+    width: auto;
 }
 .glyphicon-chevron-left, .glyphicon-chevron-right {
     color: #02a8f3;
