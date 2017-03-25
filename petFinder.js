@@ -1,10 +1,8 @@
 $(document).ready(function() {
     var petObject = null;
     $('#homeModal').modal('show');
-    //$(".animalType").on("click", getRandomPet);
     $(".animalType").on("click",assignAnimalType);
     $(".animalType").on("click",getPets);
-    //$("#homeModal").on("click", resetEverything);
     $(".animalType").on("click",newSearch);
     $(".walmart").hide();
 });
@@ -29,8 +27,6 @@ function assignAnimalType() {
  * @params
  */
 function getPets(){
-    console.log($(this).text());
-    //var userSelectedAnimal = $(this).text();
     shelterFinder();
 }
 /*
@@ -40,7 +36,7 @@ function getPets(){
 function createMap(obj){
     $("#map").googleMap({
         zoom: 14,
-        coords: [obj.latitude,obj.longitude] // Map center (optional)
+        coords: [obj.latitude,obj.longitude]
     });
     $("#map").addMarker({
         coords: [obj.latitude,obj.longitude],
@@ -75,7 +71,7 @@ function displayMap(){
     createMap(coordinates);
 }
 /*
- displayPet - function to append the DOM to display the animal's profile
+ displayPet - function to append the DOM to display the animal's profile and carousel holding all of this info
  @params petObject => response["petfinder"]["pets"]
  */
 var petDetails = ["name","age","description"]; // media.photos.photo[i] for images of dog
@@ -83,16 +79,16 @@ function displayPet(petObject) {
     if (petObject.length !== 0) {
         var petCarouselDiv = $("<div id='petCarousel' class='carousel slide col-xs-12'>");
         var innerPetCarousel = $("<div class= 'carousel-inner'>");
-        var dummyDiv = $("<div class = 'item active'>").text("Click Arrow to Begin!");
+        var dummyDiv = $("<div class='item active'>").text("Click Arrow to Begin!");
         petCarouselDiv.append(innerPetCarousel);
         $(innerPetCarousel).append(dummyDiv);
         $("#petInfo").append(petCarouselDiv);
         for (var i = 0; i < petObject.length; i++) {
-            var petProfile= $("<div>").addClass("item petProfile");//.addClass("petProfile col-xs-4");
+            var petProfile= $("<div>").addClass("item petProfile");
             var petPictureHolder = $("<div>").addClass("imgContainer");
             var petPicture = $("<img>").addClass("img-fluid");
             if(petObject[i]["media"]["photos"] !== undefined) {
-                petPicture.attr("src", petObject[i]["media"]["photos"]["photo"][2]["$t"]).addClass("animalPicture"); // ...["photo"][2]["$t"] seems to be the largest image that won't require splicing out part of the string. For the time being, "good enough" -ADG
+                petPicture.attr("src", petObject[i]["media"]["photos"]["photo"][2]["$t"]).addClass("animalPicture");
                 petPictureHolder.append(petPicture);
                 petProfile.append(petPictureHolder);
             }
@@ -112,14 +108,10 @@ function displayPet(petObject) {
             petProfile.append(petName, petAge, petContact, shelterName, heartContainer);
             $(innerPetCarousel).append(petProfile);
         }
-
     }
     else {
-        console.log("This shelter does not have any " + userSelectedAnimal + "s available for adoption");
-
         $("#petInfo").append($("<div>").text("This shelter does not have any " + userSelectedAnimal + "s available for adoption"));
     }
-
     nextShelterButton = $('<button>',{
         text: 'Next Shelter',
         class: "btn btn-danger nextButton",
@@ -127,11 +119,13 @@ function displayPet(petObject) {
     });
     $('.mainContent').append(nextShelterButton);
 }
+/*
+ * walmartStuff - shows walmart div and shows markers of walmart locations on map
+ */
 var walmartStuff = function () {
     $(".walmart").show();
     $(".walmart div").remove();
     suggestion.getItemInformation();
-    // suggestion.findNearestStoreFromShelter();
     server.walmartLocator(infoForMap());
 };
 
@@ -170,7 +164,7 @@ function getRandomPet() {
         data: dataObject,
         dataType: "JSON",
         method: "GET",
-        url: urlString, //"http://api.petfinder.com/pet.getRandom", // petFinder.php",
+        url: urlString,
         success: function (response) {
             console.log("Random pet", response["petfinder"]["pet"]);
             petObject = response["petfinder"]["pet"];
@@ -205,14 +199,12 @@ var shelterFinder = function () {
         data: dataObject,
         dataType: 'json',
         success: function (result) {
-            console.log(result);
             for(var i = 0; i < result.petfinder.shelters.shelter.length; i++) {
                 shelterArray.push(result.petfinder.shelters.shelter[i]);
             }
             shelterPets(shelterArray);
             displayMap();
             suggestion.getItemInformation();
-            //suggestion.findNearestStoreFromShelter();
         }
     });
 };
@@ -301,12 +293,18 @@ function serverConstructor() {
         });
     };
 }
+/*
+ * resetEverything - function to reset petArray, shelterArray, selected animal, and the shelter count
+ */
 var resetEverything = function () {
     petArray = [];
     shelterArray = [];
     userSelectedAnimal = null;
     shelterCount = 0;
 };
+/*
+ * nextShelter - function to change shelters when next shelter button is clicked
+ */
 var nextShelter = function () {
     petArray = [];
     nextShelterButton.remove();

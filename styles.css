@@ -83,12 +83,6 @@ img.pawLogo{
 .navbar-default .navbar-nav>li>a:hover {
     color: #777;
 }
-.compName {
-    text-align: center;
-    font-weight: bold;
-    font-size: 2em;
-    color: #02a8f3;
-}
 /* Main */
 #map {
     width: 100%;
@@ -125,7 +119,6 @@ img.pawLogo{
     -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
     box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
     padding: 5% 7%;
-    width: 15vw;
     text-transform: uppercase;
 }
 .btn.btn-danger {
@@ -165,10 +158,7 @@ img.pawLogo{
     top: 18%;
     left: 46%;
 }
-/* Carousel */
-.carousel-inner{
-    font-size: 1.5em;
-}
+
 /* Animal picture class */
 .animalPicture {
     display: inline;
@@ -202,10 +192,14 @@ img.pawLogo{
     text-transform: uppercase;
     font-size: 2em;
 }
+/* Carousel */
 .carousel{
     padding-top: 20px;
     margin: 0 auto;
     height: 100%;
+}
+.carousel-inner{
+    font-size: 1.5em;
 }
 a.right.carousel-control, a.left.carousel-control {
     background-image: none;
@@ -222,15 +216,15 @@ a.right.carousel-control, a.left.carousel-control {
     height: 50%;
     width: 90vw;
     padding: 12px;
-    margin-top: 12px;
     border-radius: 4px;
-    box-shadow: 0px 5px 2px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 2px 0 rgba(0,0,0,0.75);
+    margin: 0 auto;
 }
 .walmart div{
     width: 20%;
     display: inline-block;
     background-color: #ffffff;
-    margin-top: 12px;
+    margin: 2% 2%;
 }
 .walmart.img{
     width: 50%;
